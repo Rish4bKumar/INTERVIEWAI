@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 240 20% 98%;
+    --foreground: 240 60% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 60% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 60% 15%;
+
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    
+    --primary-dark: 244 65% 48%;
+    --primary-light: 243 90% 70%;
+
+    --secondary: 280 65% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 189 94% 55%;
+    --accent-foreground: 240 60% 15%;
+    
+    --coral: 351 95% 71%;
+    --coral-foreground: 240 60% 15%;
+
+    --muted: 240 15% 95%;
+    --muted-foreground: 240 20% 50%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 15% 90%;
+    --input: 240 15% 90%;
+    --ring: 243 75% 59%;
+
+    --radius: 0.75rem;
+    
+    --gradient-hero: linear-gradient(135deg, hsl(243 75% 59%) 0%, hsl(280 65% 60%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(243 90% 97%) 0%, hsl(280 90% 97%) 100%);
+    --gradient-accent: linear-gradient(90deg, hsl(189 94% 55%) 0%, hsl(243 75% 59%) 100%);
+    
+    --shadow-sm: 0 2px 8px hsla(240, 60%, 15%, 0.04);
+    --shadow-md: 0 4px 16px hsla(240, 60%, 15%, 0.08);
+    --shadow-lg: 0 8px 32px hsla(240, 60%, 15%, 0.12);
+    --shadow-xl: 0 12px 48px hsla(240, 60%, 15%, 0.16);
+    --shadow-glow: 0 0 40px hsla(243, 75%, 59%, 0.3);
+    
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 240 50% 8%;
+    --foreground: 240 20% 95%;
+
+    --card: 240 45% 12%;
+    --card-foreground: 240 20% 95%;
+
+    --popover: 240 45% 12%;
+    --popover-foreground: 240 20% 95%;
+
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 280 65% 60%;
+    --secondary-foreground: 0 0% 100%;
+
+    --accent: 189 94% 55%;
+    --accent-foreground: 240 60% 15%;
+
+    --muted: 240 40% 18%;
+    --muted-foreground: 240 15% 65%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 40% 20%;
+    --input: 240 40% 20%;
+    --ring: 243 75% 59%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    font-family: "Space Grotesk", sans-serif;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(circle at 10% 15%, hsla(243, 75%, 59%, 0.14) 0%, transparent 42%),
+      radial-gradient(circle at 80% 20%, hsla(351, 95%, 71%, 0.12) 0%, transparent 38%),
+      radial-gradient(circle at 50% 90%, hsla(189, 94%, 55%, 0.1) 0%, transparent 36%);
+    background-attachment: fixed;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: hsla(243, 75%, 59%, 0.25);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: 0 0 20px hsla(243, 75%, 59%, 0.4);
+  }
+
+  .glow-primary-hover:hover {
+    box-shadow: 0 0 30px hsla(243, 75%, 59%, 0.6);
+    transition: box-shadow 0.3s ease;
+  }
+
+  /* Gradient text animation */
+  .gradient-text-animate {
+    background: linear-gradient(135deg, hsl(243 75% 59%) 0%, hsl(280 65% 60%) 50%, hsl(189 94% 55%) 100%);
+    background-size: 200% auto;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Pulse glow */
+  @keyframes pulse-glow {
+    0%, 100% {
+      box-shadow: 0 0 20px hsla(243, 75%, 59%, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 40px hsla(243, 75%, 59%, 0.8);
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  /* Shimmer effect */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .noise-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: radial-gradient(hsla(240, 20%, 20%, 0.5) 0.7px, transparent 0.7px);
+    background-size: 3px 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

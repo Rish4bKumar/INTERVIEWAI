@@ -1,0 +1,9 @@
+Flask
+Flask-Cors
+python-dotenv
+pdfplumber
+python-docx
+spacy
+nltk
+openai
+google-generativeai

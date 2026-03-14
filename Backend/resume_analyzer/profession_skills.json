@@ -1,0 +1,72 @@
+{
+    "software_engineer": {
+      "label": "Software Engineer",
+      "required_skills": [
+        "python",
+        "java",
+        "javascript",
+        "react",
+        "node",
+        "git",
+        "data structures",
+        "algorithms",
+        "sql",
+        "api development",
+        "problem solving"
+      ]
+    },
+    "data_analyst": {
+      "label": "Data Analyst",
+      "required_skills": [
+        "excel",
+        "sql",
+        "python",
+        "tableau",
+        "power bi",
+        "data visualization",
+        "statistics",
+        "data cleaning",
+        "reporting"
+      ]
+    },
+    "digital_marketer": {
+      "label": "Digital Marketer",
+      "required_skills": [
+        "seo",
+        "sem",
+        "google ads",
+        "facebook ads",
+        "content writing",
+        "analytics",
+        "email marketing",
+        "social media marketing",
+        "brand management"
+      ]
+    },
+    "graphic_designer": {
+      "label": "Graphic Designer",
+      "required_skills": [
+        "photoshop",
+        "illustrator",
+        "figma",
+        "ui design",
+        "typography",
+        "color theory",
+        "branding",
+        "creativity"
+      ]
+    },
+    "human_resource": {
+      "label": "Human Resource",
+      "required_skills": [
+        "recruitment",
+        "interviewing",
+        "employee engagement",
+        "onboarding",
+        "hr policies",
+        "performance management",
+        "communication"
+      ]
+    }
+  }
+  
